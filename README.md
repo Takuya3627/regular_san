@@ -1,24 +1,28 @@
-# README
+# <常連さん>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+サイト利用者の行きつけの「飲食店」を他のサイト利用者へオススメするサイトです。
 
-Things you may want to cover:
+### サイトテーマ
+既存顧客が店の紹介することにより、新規顧客の獲得へ繋げるサイトです。
 
-* Ruby version
+### テーマを選んだ理由
+コロナ禍の影響により、閉店していく飲食店が多いことに課題を感じました。
+私は、家族や友人と楽しくお店で美味しいご飯を食べ、お酒をの飲むことが趣味です。
+そこで「せめて、自分のお気に入りのお店だけは、潰れてほしくない！」という思いから、本テーマに決めました。
 
-* System dependencies
+### ターゲットユーザ
+私と同じ思いや単純に「自分の好きなお店をもっと他の方に利用して欲しい。」と思っている方々がターゲットです。
 
-* Configuration
+### 主な利用シーン
+隠れた名店を探している時、オススメのお店がある時です。
 
-* Database creation
+## チャレンジ要素一覧
+<https://docs.google.com/spreadsheets/d/1i64KpLVskIKPceTiSnjTRp58x3lqdCHUN1NaFUSHnk0/edit#gid=0>
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
