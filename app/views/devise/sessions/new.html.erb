@@ -1,0 +1,34 @@
+<section class="inner">
+  <h2 class="section-ttl">ログイン</h2>
+  <%# if flash[:danger] %>
+    <p class="text-red"><%#= flash[:danger] %></p>
+  <%# end %>
+  <h5 class="section-ttl">既にユーザー登録がお済みの方はこちらログイン</h5>
+
+  <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+    <div class="field">
+      <%= f.label "メールアドレス" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label "パスワード" %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <h5 class="section-ttl">ユーザー登録がお済みでない方</h5>
+  <p><%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。</p>
+</section>
+
