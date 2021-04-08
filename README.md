@@ -18,7 +18,7 @@
 隠れた名店を探している時、オススメのお店がある時です。
 
 ## チャレンジ要素一覧
-<https://docs.google.com/spreadsheets/d/1i64KpLVskIKPceTiSnjTRp58x3lqdCHUN1NaFUSHnk0/edit#gid=0>
+[チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1i64KpLVskIKPceTiSnjTRp58x3lqdCHUN1NaFUSHnk0/edit#gid=0)
 
 ## 開発環境
 - OS：Linux(CentOS)
