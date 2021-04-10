@@ -1,0 +1,14 @@
+<div class="bg-light m-5 px-25 w-25 text-center">
+  <h3>飲食店一覧</h3>
+</div>
+
+<% @restaurants.each do |restaurant| %>
+<div>
+  <%= link_to restaurant_path(restaurant.id) do %>
+  <%= attachment_image_tag restaurant, :image %>
+  <% end %>
+  <p><%= restaurant.name %></p>
+  <p><%= restaurant.introduction %></p>
+   <p><%= link_to restaurant.user.name, mypage_path %></p>
+</div>
+<% end %>

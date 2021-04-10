@@ -12,13 +12,13 @@
             <ul class="navbar-nav ml-auto">
               <p>ようこそ、<%= current_user.name %>さん!</p>
               <li>
-                <%#= link_to "お店一覧", class: "btn btn-outline-light" %>
+                <%= link_to "お店一覧", restaurants_path, class: "btn btn-outline-light" %>
               </li>
               <li>
                 <%#= link_to "投稿者一覧", class: "btn btn-outline-light" %>
               </li>
               <li>
-                <%#= link_to "お店投稿", class: "btn btn-outline-light" %>
+                <%= link_to "お店投稿", new_restaurant_path, class: "btn btn-outline-light" %>
               </li>
               <li>
                 <%#= link_to "マイページ", user_my_page_path, class: "btn btn-outline-light" %>
@@ -40,7 +40,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <li>
-              <%#= link_to "お店一覧", class: "btn btn-outline-light" %>
+              <%= link_to "お店一覧", restaurants_path, class: "btn btn-outline-light" %>
             </li>
             <li>
               <%#= link_to "投稿者一覧", class: "btn btn-outline-light" %>

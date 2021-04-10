@@ -86,3 +86,6 @@ gem 'jquery-rails'
 
 # アイコン挿入
 gem 'font-awesome-sass', '~> 5.13'
+
+# カテゴリー検索
+gem 'active_hash'
