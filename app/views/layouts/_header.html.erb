@@ -12,19 +12,19 @@
             <ul class="navbar-nav ml-auto">
               <p>ようこそ、<%= current_user.name %>さん!</p>
               <li>
-                <%= link_to "お店一覧", restaurants_path, class: "btn btn-outline-light" %>
+                <%= link_to " お店一覧", restaurants_path, class: "fas fa-store nav-link text-light" %>
               </li>
               <li>
-                <%= link_to "投稿者一覧", users_path, class: "btn btn-outline-light" %>
+                <%= link_to " 投稿者一覧", users_path, class: "fas fa-users nav-link text-light" %>
               </li>
               <li>
-                <%= link_to "お店投稿", new_restaurant_path, class: "btn btn-outline-light" %>
+                <%= link_to " お店投稿", new_restaurant_path, class: "fas fa-utensils nav-link text-light" %>
               </li>
               <li>
-                <%= link_to "マイページ", user_path(current_user.id), class: "btn btn-outline-light" %>
+                <%= link_to " マイページ", user_path(current_user.id), class: "fas fa-users-cog nav-link text-light" %>
               </li>
               <li>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-light" %>
+                <%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light" %>
               </li>
             </ul>
           </div>
@@ -40,16 +40,16 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <li>
-              <%= link_to "お店一覧", restaurants_path, class: "btn btn-outline-light" %>
+              <%= link_to " お店一覧", restaurants_path, class: "fas fa-store nav-link text-light" %>
             </li>
             <li>
-              <%= link_to "投稿者一覧", users_path, class: "btn btn-outline-light" %>
+              <%= link_to " 投稿者一覧", users_path, class: "fas fa-users nav-link text-light" %>
             </li>
             <li>
-              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-light" %>
+              <%= link_to " 新規登録", new_user_registration_path, class: "fas fa-user-plus nav-link text-light" %>
             </li>
             <li>
-              <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-light" %>
+              <%= link_to " ログイン", new_user_session_path, class: "fas fa-sign-in-alt nav-link text-light" %>
             </li>
           </ul>
         </div>

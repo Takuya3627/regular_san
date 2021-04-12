@@ -1,6 +1,9 @@
 <div class="post-body">
   <%= attachment_image_tag @restaurant, :image, :fill, 600, 400, format: 'jpeg', fallback: "no_image.jpg" %>
   <p><%= @restaurant.name %></p>
+  <p class="restaurant_<%= @restaurant.id %>">
+    <%= render "favorites/favorite", restaurant: @restaurant %>
+  </p>
   <p>HP：<%= link_to @restaurant.home_page_url %></p>
   <p>紹介文：<%= @restaurant.introduction %></p>
   <p>投稿日時：<%= @restaurant.created_at.strftime('%Y/%m/%d %H:%M') %></p>

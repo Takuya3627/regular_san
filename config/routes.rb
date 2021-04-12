@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   #put 'users/withdraw' => 'users#withdraw'
 
   resources :restaurants, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resource :favorites, only: [:create, :destroy]
 
   resources :users, only: [:index, :show, :edit, :update]
 end
