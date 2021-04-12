@@ -1,3 +1,43 @@
 <div class="bg-light m-5 px-25 w-25 text-center">
   <h3>ユーザー情報を編集</h3>
 </div>
+
+<div class='container'>
+  <%= form_with model:@user, local:true do |f| %>
+  <div class='row mb-1'>
+    <div class="col-lg-2">
+      <p>ユーザー名</p>
+    </div>
+    <div class="col-lg-2">
+      <%= f.text_field :name, autofocus: true, id:"inputName", placeholder: "店名" %>
+    </div>
+  </div>
+
+  <div class='row mb-1'>
+    <div class="col-lg-2">
+      <p>プロフィール</p>
+    </div>
+    <div class="col-lg-2">
+      <%= f.text_area :introduction, autofocus: true, id:"inputIntroducction", placeholder: "ここに紹介文を記述しましす" %>
+    </div>
+  </div>
+
+  <div class='row mb-1'>
+    <div class="col-lg-2">
+      <p>プロフィール画像</p>
+    </div>
+    <div class="col-lg-2">
+      <%= f.attachment_field :profile_image %>
+    </div>
+  </div>
+
+  <div class='row mb-1'>
+    <div class="col-lg-2">
+      <p></p>
+    </div>
+    <div class="col-lg-2">
+      <%= f.submit '変更する', class: 'btn btn-success ml2' %>
+    　<%#= link_to "削除する", restaurant_path(restaurant), method: :delete, class: "btn btn-danger ml2" %>
+  </div>
+  <% end %>
+</div>

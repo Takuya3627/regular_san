@@ -6,12 +6,12 @@
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
+    <div class="field mb2">
       <%= f.label "ユーザー名" %><br />
       <%= f.text_field :name, autofocus: true, placeholder: "常連太郎" %>
     </div>
 
-    <div class="field">
+    <div class="field mb2">
       <%= f.label "メールアドレス" %><br />
       <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", autocomplete: "email" %>
     </div>

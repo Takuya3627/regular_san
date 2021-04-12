@@ -1,7 +1,6 @@
 class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
-    @user = User.all
   end
 
   def new
@@ -13,6 +12,7 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
+    @restaurant = Restaurant.find(params[:id])
   end
 
   def create
@@ -26,6 +26,13 @@ class RestaurantsController < ApplicationController
   end
 
   def update
+    restaurant = Restaurant.find(params[:id])
+    restaurant.user_id = current_user.id
+    if restaurant.update(restaurant_params)
+      redirect_to restaurant_path(restaurant.id)
+    else
+      render :edit
+    end
   end
 
   def destroy

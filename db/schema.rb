@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_062911) do
+ActiveRecord::Schema.define(version: 2021_04_11_084057) do
 
   create_table "restaurants", force: :cascade do |t|
     t.integer "user_id"
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 2021_04_10_062911) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.string "profile_image_id"
     t.string "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

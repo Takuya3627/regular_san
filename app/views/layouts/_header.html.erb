@@ -15,13 +15,13 @@
                 <%= link_to "お店一覧", restaurants_path, class: "btn btn-outline-light" %>
               </li>
               <li>
-                <%#= link_to "投稿者一覧", class: "btn btn-outline-light" %>
+                <%= link_to "投稿者一覧", users_path, class: "btn btn-outline-light" %>
               </li>
               <li>
                 <%= link_to "お店投稿", new_restaurant_path, class: "btn btn-outline-light" %>
               </li>
               <li>
-                <%#= link_to "マイページ", user_my_page_path, class: "btn btn-outline-light" %>
+                <%= link_to "マイページ", user_path(current_user.id), class: "btn btn-outline-light" %>
               </li>
               <li>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-light" %>
@@ -43,7 +43,7 @@
               <%= link_to "お店一覧", restaurants_path, class: "btn btn-outline-light" %>
             </li>
             <li>
-              <%#= link_to "投稿者一覧", class: "btn btn-outline-light" %>
+              <%= link_to "投稿者一覧", users_path, class: "btn btn-outline-light" %>
             </li>
             <li>
               <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-light" %>

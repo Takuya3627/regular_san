@@ -1,0 +1,12 @@
+<div class="bg-light m-5 px-25 w-25 text-center">
+  <h3>投稿者一覧</h3>
+</div>
+
+<% @users.each do |user| %>
+<div>
+  <p><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
+  <p><%= link_to user.name, user_path(user) %></p>
+  <p><%= user.introduction %></p>
+  <p>投稿数：<%= user.restaurants.count %></p>
+</div>
+<% end %>

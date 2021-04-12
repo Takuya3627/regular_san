@@ -3,7 +3,7 @@
 </div>
 
 <div class='container'>
-  <%= form_with model:@restaurant, local:true do |f| %>
+  <%= form_with model:@restaurant, url: restaurants_path(@restaurant), local:true do |f| %>
   <div class='row mb-1'>
     <div class="col-lg-2">
       <p>店名</p>
@@ -39,7 +39,7 @@
       <%= f.text_field :address, placeholder: "〒000-0000 〇〇県〇〇市〇〇町0-0-0" %>
     </div>
   </div>
-  
+
   <div class='row mb-1'>
     <div class="col-lg-2">
       <p>お店のホームページ</p>

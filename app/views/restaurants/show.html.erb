@@ -1,11 +1,12 @@
 <div class="post-body">
-  <%= attachment_image_tag @restaurant, :image %>
-  <p>ショップ名：<%= @restaurant.name %></p>
+  <%= attachment_image_tag @restaurant, :image, :fill, 600, 400, format: 'jpeg', fallback: "no_image.jpg" %>
+  <p><%= @restaurant.name %></p>
   <p>HP：<%= link_to @restaurant.home_page_url %></p>
-  <p>説明：<%= @restaurant.introduction %></p>
-  <p>ユーザーネーム：<%= @restaurant.user.name %></p>
-  <p>投稿日時：<%= @restaurant.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @restaurant.user == current_user %>
-    <%= link_to "削除", restaurant_path(@restaurant), method: :delete %>
-  <% end %>
+  <p>紹介文：<%= @restaurant.introduction %></p>
+  <p>投稿日時：<%= @restaurant.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+</div><br />
+
+<div class="post-body">
+  <p>投稿者：<%= link_to @restaurant.user.name, user_path(@restaurant.user) %></p>
+  <p><%= @restaurant.user.introduction %></p>
 </div>
