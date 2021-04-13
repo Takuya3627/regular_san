@@ -1,10 +1,6 @@
 class ReviewsController < ApplicationController
   def index
-  end
-
-  def create
-  end
-
-  def destroy
+    @restaurant_comments = RestaurantComment.all
+    @restaurant = Restaurant.all
   end
 end

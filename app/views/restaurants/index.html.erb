@@ -9,7 +9,6 @@
   <% end %>
   <p><%= attachment_image_tag restaurant.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
   <p><%= link_to restaurant.user.name, user_path(restaurant.user) %></p>
-  <p><%= restaurant.name %></p>
   <p class="restaurant_<%= restaurant.id %>">
     <%= render "favorites/favorite", restaurant: restaurant %>
   </p>

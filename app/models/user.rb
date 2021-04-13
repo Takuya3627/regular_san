@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :restaurants, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :restaurant_comments, dependent: :destroy
   attachment :profile_image
 end

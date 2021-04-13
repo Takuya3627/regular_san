@@ -13,3 +13,7 @@
   <p>投稿者：<%= link_to @restaurant.user.name, user_path(@restaurant.user) %></p>
   <p><%= @restaurant.user.introduction %></p>
 </div>
+
+<div class="restaurant_comments_area">
+  <%= render 'restaurant_comments/comment', restaurant: @restaurant, restaurant_comment: @restaurant_comment %>
+</div>

@@ -1,0 +1,38 @@
+<div class="comments">
+<% @restaurant_comments.each do |restaurant_comment| %>
+  <%= link_to restaurant_comment.user.name, user_path(restaurant_comment.user) %><br />
+  <%= restaurant_comment.created_at.strftime('%Y/%m/%d %H:%M') %><br />
+  <div class="restaurant_comments_area">
+    <% if current_user == restaurant_comment.user %>
+      <%= link_to '削除する', restaurant_restaurant_comment_path(restaurant_comment.restaurant_id, restaurant_comment.id), method: :delete, remote: true, class: 'btn-sm btn-danger' %></td>
+    <% end %>
+  </div>
+  <div class="">
+   <div id="star-rate-<%= restaurant_comment.id %>"></div>
+   <script>
+   $('#star-rate-<%= restaurant_comment.id %>').raty({
+     size: 36,
+     starOff:  '<%= asset_path('star-off.png') %>',
+     starOn : '<%= asset_path('star-on.png') %>',
+     starHalf: '<%= asset_path('star-half.png') %>',
+     half: true,
+     readOnly: true,
+     score: <%= restaurant_comment.rate %>,
+   });
+   </script>
+ </div>
+ <div class="">
+   <p><%= restaurant_comment.rate %>点</p>
+ </div>
+  <%= restaurant_comment.comment %><br />
+<% end %>
+</div>
+
+<div class="post-body">
+  <%#= attachment_image_tag @restaurant, :image, :fill, 600, 400, format: 'jpeg', fallback: "no_image.jpg" %>
+  <p><%= @restaurant.name %></p>
+  <p class="far fa-kiss-wink-heart fa-3x"><%#= @restaurant.favorites.count %></p>
+  <p>HP：<%#= link_to @restaurant.home_page_url %></p>
+  <p>紹介文：<%#= @restaurant.introduction %></p>
+  <p>投稿日時：<%#= @restaurant.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+</div>

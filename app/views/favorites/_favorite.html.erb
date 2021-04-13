@@ -1,7 +1,7 @@
 <% if restaurant.favorited_by?(current_user) %>
-  <%= link_to "", favorites_path(restaurant_id: restaurant.id), method: :delete, remote: true, class: "far fa-kiss-wink-heart fa-3x size", style: "color: #0000ff;" %>
+  <%= link_to "", restaurant_favorites_path(restaurant), method: :delete, remote: true, class: "far fa-kiss-wink-heart fa-3x size", style: "color: #0000ff;" %>
   <%=  restaurant.favorites.count %>
 <% else %>
-  <%= link_to "", favorites_path(restaurant_id: restaurant.id), method: :post, remote: true, class: "fas fa-smile fa-3x size", style: "color: #0000ff;" %>
+  <%= link_to "", restaurant_favorites_path(restaurant), method: :post, remote: true, class: "fas fa-smile fa-3x size", style: "color: #0000ff;" %>
   <%=  restaurant.favorites.count %>
 <% end %>
