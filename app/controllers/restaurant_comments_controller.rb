@@ -13,9 +13,9 @@ class RestaurantCommentsController < ApplicationController
 
   def destroy
     @restaurant = Restaurant.find(params[:restaurant_id])
-  	@restaurant_comment = @restaurant.restaurant_comments.find(params[:id])
-		@restaurant_comment.destroy
-		redirect_to reviews_path(restaurant_comment)
+    @restaurant_comment = @restaurant.restaurant_comments.find(params[:id])
+    @restaurant_comment.destroy
+    redirect_to reviews_path(restaurant_comment)
   end
 
   private
@@ -23,5 +23,4 @@ class RestaurantCommentsController < ApplicationController
   def restaurant_comment_params
     params.require(:restaurant_comment).permit(:rate, :comment)
   end
-
 end

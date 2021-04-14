@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2021_04_13_080645) do
     t.text "introduction"
     t.string "image_id"
     t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.string "home_page_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

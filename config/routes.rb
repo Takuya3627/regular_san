@@ -4,15 +4,15 @@ Rails.application.routes.draw do
   root :to => "homes#top"
   get "homes/about" => "homes#about"
 
-  #get 'users/mypage' => 'users#show', as: 'mypage'
-  #get 'users/information/edit' => 'users#edit', as: 'edit_information'
-  #patch 'users/information' => 'users#update', as: 'update_information'
-  #put 'users/information' => 'users#update'
-  #get 'users/unsubscribe' => 'users#unsubscribe', as: 'confirm_unsubscribe'
-  #patch 'users/withdraw' => 'users#withdraw', as: 'withdraw_customer'
-  #put 'users/withdraw' => 'users#withdraw'
+  # get 'users/mypage' => 'users#show', as: 'mypage'
+  # get 'users/information/edit' => 'users#edit', as: 'edit_information'
+  # patch 'users/information' => 'users#update', as: 'update_information'
+  # put 'users/information' => 'users#update'
+  # get 'users/unsubscribe' => 'users#unsubscribe', as: 'confirm_unsubscribe'
+  # patch 'users/withdraw' => 'users#withdraw', as: 'withdraw_customer'
+  # put 'users/withdraw' => 'users#withdraw'
 
-  resources :restaurants, only: [:index, :new, :create, :show, :edit, :update, :destroy]do
+  resources :restaurants, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :restaurant_comments, only: [:create, :destroy]
   end

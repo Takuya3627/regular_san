@@ -89,3 +89,6 @@ gem 'font-awesome-sass', '~> 5.13'
 
 # カテゴリー検索
 gem 'active_hash'
+
+# 住所の情報を元に緯度、経度を割り出す
+gem 'geocoder'
