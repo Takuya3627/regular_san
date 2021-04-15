@@ -1,16 +1,18 @@
-<header class="p-3 mb-2 bg-dark border border-info sticky-top" style="height: 80px;">
-    <div class="container">
+<header class="p-3 mb-2 sticky-top" style="height: 80px;">
+    <div class="container-fluid">
       <% if user_signed_in? %>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark">
           <li>
-            <%= link_to "常連さん", root_path, class: "btn btn-outline-light"%>
+            <%= link_to image_tag('regular_san.png', :size =>'80x42'), root_path %>
           </li>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-              <p>ようこそ、<%= current_user.name %>さん!</p>
+              <li class="nav-item p-1">
+                ようこそ、<%= current_user.name %>さん!
+              </li>
               <li class="nav-item">
                 <%= link_to " お店一覧", restaurants_path, class: "fas fa-store nav-link text-light" %>
               </li>

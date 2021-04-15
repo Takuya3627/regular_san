@@ -10,14 +10,14 @@
   </head>
 
   <body>
-    <div class="wrapper">
+    <div class="wrapper" style="background-image: url(concrete_seamless.png);">
       <%= render 'layouts/header' %>
         <main>
           <p id="notice"><%= notice %></p>
           <%= yield %>
         </main>
       <footer>
-        <%#= render 'layouts/footer' %>
+        <%= render 'layouts/footer' %>
       </footer>
     </div>
   </body>
