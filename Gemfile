@@ -66,6 +66,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # 環境変数の管理
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
 
 # 画像投稿用gem
 gem "refile", require: "refile/rails", github: 'manfe/refile'
