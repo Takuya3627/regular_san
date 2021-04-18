@@ -1,6 +1,18 @@
 class RestaurantCommentsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @restaurant_comments = @restaurant.restaurant_comments
+    @average = 0.0
+    comment_count = @restaurant_comments.count
+    total = 0.0
+    @restaurant_comments.each do |restaurant_comment|
+      total = restaurant_comment.rate + total
+    end
+    #byebug
+  end
+
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     restaurant_comment = current_user.restaurant_comments.new(restaurant_comment_params)

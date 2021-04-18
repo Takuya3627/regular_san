@@ -16,10 +16,6 @@
  </script>
   <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに" %><br />
   <%= f.submit "投稿する", class: 'btn btn-success ml2' %>
-  <%= link_to "レビューを見る", reviews_path(restaurant_comment), class: 'btn btn-primary ml2' %>
+  <%= link_to "レビューを見る", restaurant_restaurant_comments_path(restaurant.id), class: 'btn btn-primary ml2' %>
 <% end %>
 </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> e11ae54c427b1555c6a4b37576036426cda9c24a

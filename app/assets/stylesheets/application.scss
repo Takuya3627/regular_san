@@ -18,9 +18,12 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-li{
-  list-style:none;
-   margin:0px 10px;
+// フォント・字体変更
+@font-face {
+  font-family: '03UI';
+  src: asset_url('/assets/03UI.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .flash {
@@ -36,33 +39,62 @@ li{
 }
 
 .wrapper{
-    min-height: 100vh;
-    position: relative;/*←相対位置*/
-    padding-bottom: 120px;/*←footerの高さ*/
-    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  padding-bottom: 120px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
 
 header{
-    background-color: #FF8C00;
-    color: #fff;
+  background-color: #fff;
+  color: #000;
+  font-family: '03UI';
+}
+
+.regular_san{
+  color: #000;
+  background-color: #fff;
+  font-size: 32px;
+  text-decoration: none !important;
+}
+
+li{
+  list-style:none;
+  margin:0px 20px;
+  font-size: 20px;
+}
+
+.po{
+  color: #000;
+  background-color: #fff;
+  font-size: 20px;
+  text-decoration: none !important;
+}
+
+a:hover{
+  color: #555;
 }
 
 nav{
-    background-color: #FF8C00;
-    color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
-body{
-    background-image: image-url("concrete_seamless.png");
+.navbar-toggler .navbar-toggler-icon{
+  color: #000;
 }
 
 footer{
-    width: 100%;
-    background-color: #FF8C00;
-    color: #fff;
-    text-align: center;
-    padding: 30px 0;
+  width: 100%;
+  color: #000;
+  text-align: center;
+  padding: 30px 0;
 
-    position: absolute;/*←絶対位置*/
-    bottom: 0; /*下に固定*/
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+}
+
+.jumbotron{
+  background:url(japan.jpg) center no-repeat;
+  background-size: cover;
 }
