@@ -95,3 +95,6 @@ gem 'active_hash'
 
 # 住所の情報を元に緯度、経度を割り出す
 gem 'geocoder'
+
+# 検索機能
+gem 'ransack'

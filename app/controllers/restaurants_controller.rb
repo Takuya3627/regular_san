@@ -42,9 +42,15 @@ class RestaurantsController < ApplicationController
     redirect_to restaurants_path
   end
 
+  def category
+    @restaurants = @q.result
+    category_id = params[:q][:category_id_eq]
+    @category = Category.find_by(id: category_id)
+  end
+
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :introduction, :image, :address, :home_page_url)
+    params.require(:restaurant).permit(:name, :category_id, :introduction, :image, :address, :home_page_url)
   end
 end

@@ -1,6 +1,3 @@
-<div class="average">
-  <%= @average %>
-</div>
 <div class="comments">
   <% @restaurant_comments.each do |restaurant_comment| %>
     <%= link_to restaurant_comment.user.name, user_path(restaurant_comment.user) %><br />
@@ -31,6 +28,26 @@
       <%= restaurant_comment.comment %><br />
     </div>
   <% end %>
+</div>
+
+<div class="average">
+  <h3>レビュー評価</h3>
+  <h4>総合評価</h4>
+    <div class="">
+      <div id="star-rate-average"></div>
+      <script>
+        $('#star-rate-average').raty({
+        size: 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        half: true,
+        readOnly: true,
+        score: '<%= @average %>',
+        });
+      </script>
+    </div>
+  <p><%= @average %>点（ <%= @restaurant_comments.count %> 件のレビュー）</p>
 </div>
 
 <div class="post-body">

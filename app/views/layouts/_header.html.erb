@@ -5,6 +5,12 @@
           <li>
             <%= link_to "常連さん", root_path, class: "regular_san" %>
           </li>
+          <div class="">
+            <%= search_form_for @q, url: restaurant_category_path do |f| %>
+              <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, {include_blank: "カテゴリー検索"},  { required: true }  %>
+              <%= f.submit '検索' %>
+            <% end %>
+          </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -17,13 +23,13 @@
                 <%= link_to "登録者一覧", users_path, class: "po" %>
               </li>
               <li class="nav-item">
-                <%= link_to " オススメする!", new_restaurant_path, class: "po" %>
+                <%= link_to "オススメする!", new_restaurant_path, class: "po" %>
               </li>
               <li class="nav-item">
-                <%= link_to " マイページ", user_path(current_user.id), class: "po" %>
+                <%= link_to "マイページ", user_path(current_user.id), class: "po" %>
               </li>
               <li class="nav-item">
-                <%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "po" %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "po" %>
               </li>
             </ul>
           </div>
@@ -38,6 +44,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <%= search_form_for @q, url: restaurant_category_path do |f| %>
+                <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, {include_blank: "カテゴリー検索"},  { required: true }  %>
+                <%= f.submit '検索' %>
+              <% end %>
+            </li>
             <li class="nav-item">
               <%= link_to "お店一覧", restaurants_path, class: "po" %>
             </li>
