@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_04_13_080645) do
   end
 
   create_table "restaurant_comments", force: :cascade do |t|
-    t.float "rate"
+    t.float "rate", default: 0.0, null: false
     t.text "comment"
     t.integer "user_id"
     t.integer "restaurant_id"

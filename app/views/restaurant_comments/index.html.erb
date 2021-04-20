@@ -9,6 +9,7 @@
     </div>
     <div class="">
       <div id="star-rate-<%= restaurant_comment.id %>"></div>
+
       <script>
         $('#star-rate-<%= restaurant_comment.id %>').raty({
         size: 36,
@@ -20,6 +21,7 @@
         score: <%= restaurant_comment.rate %>,
         });
       </script>
+
     </div>
     <div class="">
       <p><%= restaurant_comment.rate %>点</p>

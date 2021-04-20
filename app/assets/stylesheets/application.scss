@@ -45,10 +45,20 @@
   box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
 
-header{
+header {
   background-color: #fff;
   color: #000;
   font-family: '03UI';
+}
+
+input, p {
+  font-family: serif;
+}
+
+select{
+  font-family: serif;
+	border :2px solid #EEEEEE;
+	font-size :17px;
 }
 
 li{
@@ -92,9 +102,4 @@ footer{
 
   position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
-}
-
-.jumbotron{
-  background:url(japan.jpg) center no-repeat;
-  background-size: cover;
 }
