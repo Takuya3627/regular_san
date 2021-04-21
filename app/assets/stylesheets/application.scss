@@ -51,6 +51,10 @@ header {
   font-family: '03UI';
 }
 
+.navbar-toggler {
+  background-color: #808080;
+}
+
 input, p {
   font-family: serif;
 }
@@ -87,10 +91,6 @@ a:hover{
 
 nav{
   background-color: #fff;
-  color: #000;
-}
-
-.navbar-toggler .navbar-toggler-icon{
   color: #000;
 }
 

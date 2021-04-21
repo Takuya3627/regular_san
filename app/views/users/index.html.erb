@@ -2,11 +2,25 @@
   <h3>投稿者一覧</h3>
 </div>
 
-<% @users.each do |user| %>
-<div>
-  <p><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
-  <p><%= link_to user.name, user_path(user) %></p>
-  <p><%= user.introduction %></p>
-  <p>投稿数：<%= user.restaurants.count %></p>
+<div class="">
+  <div class="card-deck mx-auto">
+    <% @users.each do |user| %>
+      <div class="col-sm-3 ">
+        <div class="card mb-4 shadow">
+          <div class="img mx-auto py-3">
+            <%= attachment_image_tag user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg" %>
+          </div>
+          <div class="card-body text-center">
+            <h3><%= link_to user.name, user_path(user) %></h3>
+          </div>
+          <div class="card-text text-center">
+            <p><%= user.introduction %></p>
+          </div>
+          <div class="card-footer text-center">
+            <small class="text-muted">投稿数：<%= user.restaurants.count %></small>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-<% end %>
