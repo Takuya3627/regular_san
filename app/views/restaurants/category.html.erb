@@ -1,5 +1,5 @@
-<div class="bg-light m-5 px-25 w-25 text-center">
-  <h3><%= @category.name %>の一覧</h3>
+<div class="bg-gray m-5 px-25 w-25 text-center">
+  <h3 class="heading"><%= @category.name %>の一覧</h3>
 </div>
 
 <ul>
@@ -15,7 +15,7 @@
       </p>
 
 
-  
+
       <p>投稿日時：<%= restaurant.created_at.strftime('%Y/%m/%d %H:%M') %></p>
     </li>
   <% end %>

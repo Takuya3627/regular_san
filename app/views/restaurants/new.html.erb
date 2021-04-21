@@ -1,69 +1,86 @@
 <div class="bg-light m-5 px-25 w-25 text-center">
-  <h3>お気に入りのお店を紹介！</h3>
+  <h3 class="heading">お気に入りのお店を登録！</h3>
 </div>
 
 <div class='container'>
   <%= form_with model:@restaurant, url: restaurants_path(@restaurant), local:true do |f| %>
-  <div class='row lg-4'>
-    <div class="col-lg-2">
+  <div class='row md-1'>
+    <div class="col-lg-4">
       <p>店名</p>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-8 mx-auto">
       <%= f.text_field :name, placeholder: "店名" %>
     </div>
   </div>
 
-  <div class='row lg-4'>
-    <div class="col-lg-2">
+  <div class='row md-1'>
+    <div class="col-lg-4">
       <p>紹介文</p>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-8 mx-auto">
       <%= f.text_area :introduction, placeholder: "ここに紹介文を記述しましす" %>
     </div>
   </div>
 
   <div class='row md-1'>
-    <div class="col-lg-2">
+    <div class="col-lg-4">
       <p>写真</p>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-8 mx-auto">
       <%= f.attachment_field :image %>
     </div>
   </div>
 
   <div class='row md-1'>
-    <div class="col-lg-2">
+    <div class="col-lg-4">
       <p>住所</p>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-8 mx-auto">
       <%= f.text_field :address, autofocus: true, placeholder: "〒000-0000 〇〇県〇〇市〇〇町0-0-0" %>
     </div>
   </div>
 
   <div class='row md-1'>
-    <div class="col-lg-2">
+    <div class="col-lg-4">
       <p>お店のホームページ</p>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-8 mx-auto">
       <%= f.text_field :home_page_url, placeholder: "https//..." %>
     </div>
   </div>
 
   <div class='row md-1'>
-    <div class="col-lg-2">
+    <div class="col-lg-4">
       <p>カテゴリー</p>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-8 mx-auto">
       <%= f.collection_select(:category_id, Category.all, :id, :name,{prompt: "--選択してください--"}) %>
     </div>
   </div>
 
   <div class='row md-1'>
-    <div class="col-lg-2">
+    <div class="col-lg-4">
       <p></p>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-8 mx-auto">
       <%= f.submit '投稿', class: 'btn btn-success' %>
   </div>
   <% end %>
 </div>
+
+        <div class="form-row mb-4">
+            <div class="col-md-6">
+                <label for="lastName">名字</label>
+                <input type="text" class="form-control" id="lastName" placeholder="名字" required>
+                <div class="invalid-feedback">
+                    入力してください
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="firstName">名前</label>
+                <input type="text" class="form-control" id="firstName" placeholder="名前" required>
+                <div class="invalid-feedback">
+                    入力してください
+                </div>
+            </div>
+        </div>
