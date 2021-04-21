@@ -21,7 +21,7 @@
 // フォント・字体変更
 @font-face {
   font-family: '03UI';
-  src: asset_url('/assets/03UI.ttf') format("truetype");
+  src: url('/fonts/03UI.ttf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
