@@ -3,6 +3,10 @@
 </div>
 
 <div class="">
+  <%= paginate @users %>
+</div>
+
+<div class="">
   <div class="card-deck mx-auto">
     <% @users.each do |user| %>
       <div class="col-sm-3 ">

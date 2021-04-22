@@ -28,16 +28,16 @@
     <div class="row">
       <% @restaurants.each do |restaurant| %>
       <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
+        <div class="card mb-4 shadow">
           <div class="img-fluid">
           <%= link_to restaurant_path(restaurant.id) do %>
             <%= attachment_image_tag restaurant, :image, :fill, 348, 200, format: 'jpeg', fallback: "no_image.jpg" %>
           <% end %>
           </div>
           <div class="card-body">
-            <h3 class="my-5"><%= restaurant.name %></h3>
+            <h5 class="my-5"><%= restaurant.name %></h5>
             <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
+              <div class="btn-group mx-auto">
                 <% if restaurant.user == current_user %>
                   <p class="col"><%= link_to "編集する", edit_restaurant_path(restaurant), class: "btn btn-success ml2" %></p>
                   <p class="col"><%= link_to "削除する", restaurant_path(restaurant), method: :delete, class: "btn btn-danger ml2" %></p>

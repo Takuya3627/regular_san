@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.page(params[:page]).per(9)
   end
 
   def new
@@ -21,7 +21,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user_id = current_user.id
     if @restaurant.save
-      redirect_to restaurants_path
+      redirect_to restaurant_path(@restaurant)
     else
       render :new
     end
@@ -45,6 +45,7 @@ class RestaurantsController < ApplicationController
 
   def category
     @restaurants = @q.result
+    @restaurant = @restaurants.page(params[:page]).per(9)
     category_id = params[:q][:category_id_eq]
     @category = Category.find_by(id: category_id)
   end
