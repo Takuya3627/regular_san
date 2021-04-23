@@ -5,37 +5,72 @@
   <%# if flash[:danger] %>
     <p class="text-red"><%#= flash[:danger] %></p>
   <%# end %>
-  <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="container">
+    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class='row md-1 mb-1'>
+        <div class="col-md-1"></div>
+        <div class="col-md-3 pt-2">
+          <p>ユーザー名</p>
+        </div>
+        <div class="col-md-8 mx-auto">
+          <%= f.text_field :name, autofocus: true, placeholder: "user_name" %>
+        </div>
+      </div>
 
-    <div class="field mb2">
-      <%= f.label "ユーザー名" %><br />
-      <%= f.text_field :name, autofocus: true, placeholder: "常連太郎" %>
+      <div class='row md-1 mb-1'>
+        <div class="col-md-1"></div>
+        <div class="col-md-3 pt-2">
+          <p>メールアドレス</p>
+        </div>
+        <div class="col-md-8 mx-auto">
+          <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", autocomplete: "email" %>
+        </div>
+      </div>
+
+      <div class='row md-1 mb-1'>
+        <div class="col-md-1"></div>
+        <div class="col-md-3 pt-1">
+          <p>パスワード
+            <% if @minimum_password_length %>
+              <em>(※<%= @minimum_password_length %>文字以上)</em>
+            <% end %>
+          </p>
+        </div>
+        <div class="col-md-8 mx-auto">
+          <%= f.password_field :password, placeholder: "password", autocomplete: "new-password" %>
+        </div>
+      </div>
+
+     <div class='row md-1 mb-1'>
+        <div class="col-md-1"></div>
+        <div class="col-md-3 pt-2">
+          <p>パスワードの確認</p>
+        </div>
+        <div class="col-md-8 mx-auto">
+          <%= f.password_field :password_confirmation, placeholder: "password_confirmation", autocomplete: "new-password" %>
+        </div>
+      </div>
+
+      <div class='row md-1 mb-1'>
+        <div class="mx-auto">
+          <%= f.submit '     新規登録     ', class: 'btn btn-success' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="container mt-3">
+    <div class="row md-1">
+      <div class="col-md-3">
+        <h6 class="heading_new text-center">既に登録がお済みの方</h6>
+      </div>
     </div>
-
-    <div class="field mb2">
-      <%= f.label "メールアドレス" %><br />
-      <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", autocomplete: "email" %>
+    <div class="row md-1 mt-3">
+      <div class="col-md-1"></div>
+      <div class="col-md-11">
+        <p><%= link_to "こちら", new_user_session_path, class: "underline" %>からログインしてください。</p>
+      </div>
     </div>
-
-    <div class="field">
-      <%= f.label "パスワード" %>
-      <% if @minimum_password_length %>
-      <em>(※<%= @minimum_password_length %>文字以上)</em>
-      <% end %><br />
-      <%= f.password_field :password, placeholder: "password", autocomplete: "new-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.label "パスワードの確認" %><br />
-      <%= f.password_field :password_confirmation, placeholder: "password_confirmation", autocomplete: "new-password" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "新規登録", class: "btn btn-success" %>
-    </div>
-  <% end %>
-
-  <h5 class="section-ttl">既に登録がお済みの方</h5>
-  <p><%= link_to "こちら", new_user_session_path, class: "underline" %>からログインしてください。</p>
+  </div>
 </section>

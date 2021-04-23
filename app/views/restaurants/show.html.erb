@@ -1,68 +1,122 @@
-<div class="post-body">
-  <%= attachment_image_tag @restaurant, :image, :fill, 600, 400, format: 'jpeg', fallback: "no_image.jpg" %>
-  <p><%= @restaurant.name %></p>
-  <p class="restaurant_<%= @restaurant.id %>">
-    <%= render "favorites/favorite", restaurant: @restaurant %>
-  </p>
-  <p>HP：<%= link_to @restaurant.home_page_url %></p>
-  <p>紹介文：<%= @restaurant.introduction %></p>
-  <p>投稿日時：<%= @restaurant.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-</div><br />
-
-<h3>投稿者</h3>
-<div class="post-body">
-  <p><%= link_to @restaurant.user.name, user_path(@restaurant.user) %></p>
-  <p><%= @restaurant.user.introduction %></p>
+<div class="bg-gray m-5 px-25 w-25 text-center">
+  <h3 class="heading">お店の詳細</h3>
 </div>
 
-<h3>レビューを書く</h3>
-<div class="restaurant_comments_area">
-  <%= render 'restaurant_comments/comment', restaurant: @restaurant, restaurant_comment: @restaurant_comment %>
-</div><br />
+<!--お店の情報-->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="card" style="width: 40rem;">
+          <%= attachment_image_tag @restaurant, :image, :fill, 600, 400, format: 'jpeg', fallback: "no_image.jpg" %>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-9">
+                <h3 class="card-title text-center mt-2 md-3"><%= @restaurant.name %></h3>
+              </div>
+              <div class="col-md-3">
+                <p class="restaurant_<%= @restaurant.id %>">
+                  <%= render "favorites/favorite", restaurant: @restaurant %>
+                </p>
+              </div>
+            </div>
+            <p>HP：<%= link_to @restaurant.home_page_url %></p>
+            <div class="border-bottom">
+              <p class="mb-1 mt-2 pl-3">コメント</p>
+            </div>
+            <div class="pt-2 pl-3">
+              <%= @restaurant.introduction %>
+            </div>
+          </div>
+          <div class="card-footer text-center">
+            <small class="text-muted">投稿日時：<%= @restaurant.created_at.strftime('%Y/%m/%d %H:%M') %></small>
+          </div>
+        </div>
+      </div>
 
-<!--地図を表示-->
-<div id="map"></div>
+      <div class="col-md-5">
+        <!--投稿者情報-->
+        <div class="card text-dark bg-light mb-3" style="max-width: 21rem;">
+          <div class="card-header">
+            <h5 class="text-center">投稿者</h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <%= attachment_image_tag @restaurant.user, :profile_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg" %>
+              </div>
+              <div class="col-md-8">
+                <h4 class="card-title"><%= link_to @restaurant.user.name, user_path(@restaurant.user) %></h4>
+                <p class="card-text"><%= @restaurant.user.introduction %></p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<!--地図の大きさ指定-->
-<style>
-#map{
-  height: 150px;
-  width:270px;
-}
-</style>
+        <!--レビュー情報-->
+        <div class="card text-dark bg-light mb-3" style="max-width: 21rem;">
+          <div class="card-header">
+            <h5 class="text-center">レビューを書く</h5>
+          </div>
+          <div class="card-body">
+            <div class="restaurant_comments_area">
+              <%= render 'restaurant_comments/comment', restaurant: @restaurant, restaurant_comment: @restaurant_comment %>
+            </div>
+          </div>
+        </div>
 
-<script type="text/javascript">
-    function initMap() {
+        <!--お店の住所-->
+        <div id="map"></div>
+        <!--地図の大きさ指定-->
+        <style>
+        #map{
+          height: 150px;
+          width: 334px;
+        }
+        </style>
 
-        var test ={lat: <%= @restaurant.latitude %>, lng: <%= @restaurant.longitude %>};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: test
-        });
-        var transitLayer = new google.maps.TransitLayer();
-        transitLayer.setMap(map);
+        <script type="text/javascript">
+            function initMap() {
 
-        var contentString = '住所：<%= @restaurant.address %>';
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
-        });
+                var test ={lat: <%= @restaurant.latitude %>, lng: <%= @restaurant.longitude %>};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: test
+                });
+                var transitLayer = new google.maps.TransitLayer();
+                transitLayer.setMap(map);
 
-        var marker = new google.maps.Marker({
-            position:test,
-            map: map,
-            title: contentString
-        });
+                var contentString = '住所：<%= @restaurant.address %>';
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
 
-        marker.addListener('click', function() {
-            infowindow.open(map, marker);
-        });
-    }
-</script>
+                var marker = new google.maps.Marker({
+                    position:test,
+                    map: map,
+                    title: contentString
+                });
 
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
-</script>
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+            }
+        </script>
 
-<!--住所名表示-->
-<p>お店の住所</p>
-<p><%= @restaurant.address %></p>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+        </script>
+
+        <!--住所名表示-->
+        <div class="text-dark bg-light mb-3" style="max-width: 21rem;">
+          <div class="border-bottom">
+            <p class="mb-1 mt-2">お店の住所</p>
+          </div>
+          <div class="pt-2">
+            <%= @restaurant.address %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -5,32 +5,63 @@
   <%# if flash[:danger] %>
     <p class="text-red"><%#= flash[:danger] %></p>
   <%# end %>
-  <h5 class="section-ttl">既にユーザー登録がお済みの方はこちらログイン</h5>
+  <h5 class="section-ttl"></h5>
 
-  <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-    <div class="field">
-      <%= f.label "メールアドレス" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="container mt-3">
+    <div class="row md-1">
+      <div class="col-md-5">
+        <h6 class="heading_new text-center">既にユーザー登録がお済みの方はこちらログイン</h6>
+      </div>
     </div>
+  </div>
 
-    <div class="field">
-      <%= f.label "パスワード" %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
+  <div class="container">
+    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+      <div class='row md-1 mb-1 pt-2'>
+        <div class="col-md-1"></div>
+        <div class="col-md-3 pt-2">
+          <p>メールアドレス</p>
+        </div>
+        <div class="col-md-8 mx-auto">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+      </div>
 
-    <% if devise_mapping.rememberable? %>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+      <div class='row md-1 mb-1'>
+        <div class="col-md-1"></div>
+        <div class="col-md-3 pt-3">
+          <p>パスワード</p>
+        </div>
+        <div class="col-md-8 mx-auto">
+          <%= f.password_field :password, autocomplete: "current-password" %>
+          <% if devise_mapping.rememberable? %>
+            <div class="field pt-2">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class='row md-1 mb-1'>
+        <div class="mx-auto">
+          <%= f.submit '     ログイン     ', class: 'btn btn-primary' %>
+        </div>
       </div>
     <% end %>
+  </div>
 
-    <div class="actions">
-      <%= f.submit "ログイン", class: "btn btn-primary" %>
+  <div class="container mt-3">
+    <div class="row md-1">
+      <div class="col-md-4">
+        <h6 class="heading_new text-center">ユーザー登録がお済みでない方</h6>
+      </div>
     </div>
-  <% end %>
-
-  <h5 class="section-ttl">ユーザー登録がお済みでない方</h5>
-  <p><%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。</p>
+    <div class="row md-1 mt-3">
+      <div class="col-md-1"></div>
+      <div class="col-md-11">
+        <p><%= link_to "こちら", new_user_registration_path, class: "underline" %>から新規登録を行なってください。</p>
+      </div>
+    </div>
+  </div>
 </section>
-
