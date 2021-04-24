@@ -77,6 +77,8 @@ gem "refile-mini_magick"
 
 # ユーザ認証機能
 gem 'devise'
+# 日本語化
+gem 'devise-i18n'
 
 # ページング機能
 gem 'kaminari', '~> 1.2.1'

@@ -2,6 +2,13 @@
   <h3 class="heading">お気に入りのお店を登録！</h3>
 </div>
 
+<% if @restaurant.errors.any? %>
+  <%= @restaurant.errors.count %>件のエラーが発生しました。
+  <% @restaurant.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
 <div class='container'>
   <%= form_with model:@restaurant, url: restaurants_path(@restaurant), local:true do |f| %>
     <div class='row md-1 mb-1'>
@@ -13,7 +20,7 @@
         <%= f.text_field :name, placeholder: "店名" %>
       </div>
     </div>
-  
+
     <div class='row md-1 mb-1'>
       <div class="col-md-2"></div>
       <div class="col-md-2 pt-2">
@@ -23,7 +30,7 @@
         <%= f.text_area :introduction, placeholder: "ここに紹介文を記述しましす。" %>
       </div>
     </div>
-  
+
     <div class='row md-1 mb-1'>
       <div class="col-md-2"></div>
       <div class="col-md-2 pt-2">
@@ -33,7 +40,7 @@
         <%= f.attachment_field :image %>
       </div>
     </div>
-  
+
     <div class='row md-1 mb-1'>
       <div class="col-md-2"></div>
       <div class="col-md-2 pt-2">
@@ -43,7 +50,7 @@
         <%= f.text_field :address, autofocus: true, placeholder: "〒000-0000 〇〇県〇〇市〇〇町0-0-0" %>
       </div>
     </div>
-  
+
     <div class='row md-1 mb-1'>
       <div class="col-md-2"></div>
       <div class="col-md-2 pt-2">
@@ -53,17 +60,17 @@
         <%= f.text_field :home_page_url, placeholder: "https//..." %>
       </div>
     </div>
-  
+
     <div class='row md-1 mb-1'>
       <div class="col-md-2"></div>
       <div class="col-md-2">
         <p>カテゴリー</p>
       </div>
-      <div class="col-md-8 pr-3 mx-auto">
-        <%= f.collection_select(:category_id, Category.all, :id, :name,{prompt: "------------  選択してください  ------------"}) %>
+      <div class="col-md-6 pr-3 mx-auto">
+        <%= f.collection_select(:category_id, Category.all, :id, :name,{prompt: "選択してください"}) %>
       </div>
     </div>
-  
+
     <div class='row md-1 mb-1'>
       <div class="mx-auto">
         <%= f.submit '     投稿     ', class: 'btn btn-success' %>

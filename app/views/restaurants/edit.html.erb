@@ -2,6 +2,14 @@
   <h3 class="heading">投稿内容を編集</h3>
 </div>
 
+<% if @restaurant.errors.any? %>
+  <%= @restaurant.errors.count %>件のエラーが発生しました。
+  <% @restaurant.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+
 <div class='container'>
   <%= form_with model:@restaurant, local:true do |f| %>
   <div class='row md-1 mb-1'>

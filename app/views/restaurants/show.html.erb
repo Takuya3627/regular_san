@@ -2,6 +2,12 @@
   <h3 class="heading">お店の詳細</h3>
 </div>
 
+<% if @restaurant_comment.errors.any? %>
+  <% @restaurant_comment.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
 <!--お店の情報-->
 <section class="section">
   <div class="container">
