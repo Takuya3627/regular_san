@@ -2,12 +2,6 @@
   <h3 class="heading">お店の詳細</h3>
 </div>
 
-<% if @restaurant_comment.errors.any? %>
-  <% @restaurant_comment.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
-
 <!--お店の情報-->
 <section class="section">
   <div class="container">
@@ -26,7 +20,7 @@
                 </p>
               </div>
             </div>
-            <p>HP：<%= link_to @restaurant.home_page_url %></p>
+            <p>お店のHPは、<a href= <%= @restaurant.home_page_url %>>こちら</a>から。</p>
             <div class="border-bottom">
               <p class="mb-1 mt-2 pl-3">コメント</p>
             </div>

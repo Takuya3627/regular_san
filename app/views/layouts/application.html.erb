@@ -13,9 +13,11 @@
     <div class="wrapper">
       <%= render 'layouts/header' %>
         <main>
-          <p id="notice"><%= notice %></p>
-          <%= yield %>
+          <!--deivseのフラッシュメッセージを表示-->
+          <p class="notice"><%= notice %></p>
+          <!--<p class="alert"><#%= alert %></p>-->
         </main>
+        <%= yield %>
       <footer>
         <%= render 'layouts/footer' %>
       </footer>

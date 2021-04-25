@@ -2,9 +2,7 @@
   <div class="bg-gray m-5 px-25 w-25 text-center">
     <h3 class="heading">新規ユーザー登録</h3>
   </div>
-  <%# if flash[:danger] %>
-    <p class="text-red"><%#= flash[:danger] %></p>
-  <%# end %>
+  
   <div class="container">
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>

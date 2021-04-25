@@ -1,6 +1,8 @@
 ja:
   activerecord:
     attributes:
+      user:
+        name: ユーザー名
       restaurant:
         name: 店名
         introduction: 紹介文
