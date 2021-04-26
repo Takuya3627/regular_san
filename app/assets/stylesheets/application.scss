@@ -21,7 +21,7 @@
 // フォント・字体変更
 @font-face {
   font-family: '03UI';
-  src: url('/fonts/03UI.ttf') format("truetype");
+  src: font-url('03UI.ttf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -210,6 +210,7 @@ textarea {
   list-style: square;
 }
 
+// バリデーション　エラーメッセージ
 .notice {
   color: white;
   background-color: blue;
@@ -218,3 +219,8 @@ textarea {
 //   color: white;
 //   background-color: red;
 // }
+
+// レビューランキング　文字サイズ
+.rate-rank{
+  font-size: 35px;
+}

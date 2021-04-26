@@ -1,7 +1,14 @@
 class RestaurantsController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   def index
-    @restaurants = Restaurant.page(params[:page]).per(9)
+    array = []
+    Restaurant.all.each do |restaurant|
+      restaurant_comments = restaurant.restaurant_comments
+      average = (restaurant_comments.average(:rate).presence || 0).floor(1)
+      hash = {restaurant: restaurant, average: average}
+      array << hash
+    end
+    @restaurants = Kaminari.paginate_array(array).page(params[:page]).per(9)
   end
 
   def new
@@ -10,6 +17,8 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    restaurant_comments = @restaurant.restaurant_comments
+    @average = (restaurant_comments.average(:rate).presence || 0).floor(1)
     @restaurant_comment = RestaurantComment.new
   end
 
@@ -46,10 +55,17 @@ class RestaurantsController < ApplicationController
   end
 
   def category
-    @restaurants = @q.result
-    @restaurant = @restaurants.page(params[:page]).per(9)
+    restaurants = @q.result
     category_id = params[:q][:category_id_eq]
     @category = Category.find_by(id: category_id)
+    array = []
+      restaurants.each do |restaurant|
+      restaurant_comments = restaurant.restaurant_comments
+      average = (restaurant_comments.average(:rate).presence || 0).floor(1)
+      hash = {restaurant: restaurant, average: average}
+      array << hash
+    end
+    @restaurants = Kaminari.paginate_array(array).page(params[:page]).per(9)
   end
 
   private

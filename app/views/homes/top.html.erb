@@ -67,7 +67,11 @@
       <% restaurant_rate = restaurant[:average] %>
       <div class="col-md-4">
         <div class="card mb-4 shadow">
-          <div class="rate-rank">第<%= index + 1 %>位</div>
+          <div class="row mx-auto">
+            <div class="col-md-4 mb-1 d-flex align-items-end"><h5>第</h5></div>
+            <div class="col-md-4"><div class="rate-rank"><%= index + 1 %></div></div>
+            <div class="col-md-4 mb-1 d-flex align-items-end"><h5>位</h5></div>
+          </div>
           <div class="img-fluid">
           <%= link_to restaurant_path(restaurant_data.id) do %>
             <%= attachment_image_tag restaurant_data, :image, :fill, 348, 200, format: 'jpeg', fallback: "no_image.jpg" %>
@@ -82,19 +86,19 @@
                 <%= link_to restaurant_data.user.name, user_path(restaurant_data.user) %>
               </h5>
               <div class="col d-flex align-items-end">
-                <a class="restaurant_<%= restaurant_data.id %>">
+                <p class="restaurant_<%= restaurant_data.id %>">
                   <%= render "favorites/favorite", restaurant: restaurant_data %>
-                </a>
+                </p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12 shadow-sm">
-                <h5 class="my-3"><%= restaurant_data.name %></h5>
+                <h5 class="my-3 text-center"><%= restaurant_data.name %></h5>
               </div>
             </div>
             <div class="row">
               <p class="card-text">
-                <div class="">
+                <div class="mx-auto my-3">
                   <div id="star-rate-<%= restaurant_data.id %>"></div>
                   <script>
                     $('#star-rate-<%= restaurant_data.id %>').raty({
@@ -108,8 +112,15 @@
                     });
                   </script>
                 </div>
-                <p><%= restaurant_rate %>点（ <%= Restaurant.find(restaurant_data.id).restaurant_comments.count %> 件のレビュー）</p>
+                <p class="d-flex align-items-end">
+                  <%= restaurant_rate %>点（ <%= Restaurant.find(restaurant_data.id).restaurant_comments.count %> 件のレビュー）
+                </p>
               </p>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <%= link_to "レビューを見る", restaurant_restaurant_comments_path(restaurant_data.id), class: 'btn btn-outline-secondary btn-sm btn-lg btn-block' %>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-12 border-bottom">
@@ -145,7 +156,11 @@
       <% restaurant_rate = restaurant[:average] %>
       <div class="col-md-4">
         <div class="card mb-4 shadow">
-          <div class="rate-rank">第<%= index + 1 %>位</div>
+          <div class="row mx-auto">
+            <div class="col-md-4 mb-1 d-flex align-items-end"><h5>第</h5></div>
+            <div class="col-md-4"><div class="rate-rank"><%= index + 1 %></div></div>
+            <div class="col-md-4 mb-1 d-flex align-items-end"><h5>位</h5></div>
+          </div>
           <div class="img-fluid">
           <%= link_to restaurant_path(restaurant_data.id) do %>
             <%= attachment_image_tag restaurant_data, :image, :fill, 348, 200, format: 'jpeg', fallback: "no_image.jpg" %>
@@ -160,19 +175,19 @@
                 <%= link_to restaurant_data.user.name, user_path(restaurant_data.user) %>
               </h5>
               <div class="col d-flex align-items-end">
-                <a class="restaurant_<%= restaurant_data.id %>">
+                <p class="restaurant_<%= restaurant_data.id %>">
                   <%= render "favorites/favorite", restaurant: restaurant_data %>
-                </a>
+                </p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12 shadow-sm">
-                <h5 class="my-3"><%= restaurant_data.name %></h5>
+                <h5 class="my-3 text-center"><%= restaurant_data.name %></h5>
               </div>
             </div>
             <div class="row">
               <p class="card-text">
-                <div class="">
+                <div class="mx-auto my-3">
                   <div id="star-rate-izakaya-<%= restaurant_data.id %>"></div>
                   <script>
                     $('#star-rate-izakaya-<%= restaurant_data.id %>').raty({
@@ -186,8 +201,15 @@
                     });
                   </script>
                 </div>
-                <p><%= restaurant_rate %>点（ <%= Restaurant.find(restaurant_data.id).restaurant_comments.count %> 件のレビュー）</p>
+                <p class="d-flex align-items-end">
+                  <%= restaurant_rate %>点（ <%= Restaurant.find(restaurant_data.id).restaurant_comments.count %> 件のレビュー）
+                </p>
               </p>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <%= link_to "レビューを見る", restaurant_restaurant_comments_path(restaurant_data.id), class: 'btn btn-outline-secondary btn-sm btn-lg btn-block' %>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-12 border-bottom">
@@ -221,7 +243,11 @@
       <% restaurant_rate = restaurant[:average] %>
       <div class="col-md-4">
         <div class="card mb-4 shadow">
-          <div class="rate-rank">第<%= index + 1 %>位</div>
+          <div class="row mx-auto">
+            <div class="col-md-4 mb-1 d-flex align-items-end"><h5>第</h5></div>
+            <div class="col-md-4"><div class="rate-rank"><%= index + 1 %></div></div>
+            <div class="col-md-4 mb-1 d-flex align-items-end"><h5>位</h5></div>
+          </div>
           <div class="img-fluid">
           <%= link_to restaurant_path(restaurant_data.id) do %>
             <%= attachment_image_tag restaurant_data, :image, :fill, 348, 200, format: 'jpeg', fallback: "no_image.jpg" %>
@@ -236,19 +262,19 @@
                 <%= link_to restaurant_data.user.name, user_path(restaurant_data.user) %>
               </h5>
               <div class="col d-flex align-items-end">
-                <a class="restaurant_<%= restaurant_data.id %>">
+                <p class="restaurant_<%= restaurant_data.id %>">
                   <%= render "favorites/favorite", restaurant: restaurant_data %>
-                </a>
+                </p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12 shadow-sm">
-                <h5 class="my-3"><%= restaurant_data.name %></h5>
+                <h5 class="my-3 text-center"><%= restaurant_data.name %></h5>
               </div>
             </div>
             <div class="row">
               <p class="card-text">
-                <div class="">
+                <div class="mx-auto my-3">
                   <div id="star-rate-caffe-<%= restaurant_data.id %>"></div>
                   <script>
                     $('#star-rate-caffe-<%= restaurant_data.id %>').raty({
@@ -262,8 +288,15 @@
                     });
                   </script>
                 </div>
-                <p><%= restaurant_rate %>点（ <%= Restaurant.find(restaurant_data.id).restaurant_comments.count %> 件のレビュー）</p>
+                <p class="d-flex align-items-end">
+                  <%= restaurant_rate %>点（ <%= Restaurant.find(restaurant_data.id).restaurant_comments.count %> 件のレビュー）
+                </p>
               </p>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <%= link_to "レビューを見る", restaurant_restaurant_comments_path(restaurant_data.id), class: 'btn btn-outline-secondary btn-sm btn-lg btn-block' %>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-12 border-bottom">
@@ -297,7 +330,11 @@
       <% restaurant_rate = restaurant[:average] %>
       <div class="col-md-4">
         <div class="card mb-4 shadow">
-          <div class="rate-rank">第<%= index + 1 %>位</div>
+          <div class="row mx-auto">
+            <div class="col-md-4 mb-1 d-flex align-items-end"><h5>第</h5></div>
+            <div class="col-md-4"><div class="rate-rank"><%= index + 1 %></div></div>
+            <div class="col-md-4 mb-1 d-flex align-items-end"><h5>位</h5></div>
+          </div>
           <div class="img-fluid">
           <%= link_to restaurant_path(restaurant_data.id) do %>
             <%= attachment_image_tag restaurant_data, :image, :fill, 348, 200, format: 'jpeg', fallback: "no_image.jpg" %>
@@ -312,19 +349,19 @@
                 <%= link_to restaurant_data.user.name, user_path(restaurant_data.user) %>
               </h5>
               <div class="col d-flex align-items-end">
-                <a class="restaurant_<%= restaurant_data.id %>">
+                <p class="restaurant_<%= restaurant_data.id %>">
                   <%= render "favorites/favorite", restaurant: restaurant_data %>
-                </a>
+                </p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12 shadow-sm">
-                <h5 class="my-3"><%= restaurant_data.name %></h5>
+                <h5 class="my-3 text-center"><%= restaurant_data.name %></h5>
               </div>
             </div>
             <div class="row">
               <p class="card-text">
-                <div class="">
+                <div class="mx-auto my-3">
                   <div id="star-rate-japanese_food-<%= restaurant_data.id %>"></div>
                   <script>
                     $('#star-rate-japanese_food-<%= restaurant_data.id %>').raty({
@@ -338,8 +375,15 @@
                     });
                   </script>
                 </div>
-                <p><%= restaurant_rate %>点（ <%= Restaurant.find(restaurant_data.id).restaurant_comments.count %> 件のレビュー）</p>
+                <p class="d-flex align-items-end">
+                  <%= restaurant_rate %>点（ <%= Restaurant.find(restaurant_data.id).restaurant_comments.count %> 件のレビュー）
+                </p>
               </p>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <%= link_to "レビューを見る", restaurant_restaurant_comments_path(restaurant_data.id), class: 'btn btn-outline-secondary btn-sm btn-lg btn-block' %>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-12 border-bottom">
@@ -373,7 +417,11 @@
       <% restaurant_rate = restaurant[:average] %>
       <div class="col-md-4">
         <div class="card mb-4 shadow">
-          <div class="rate-rank">第<%= index + 1 %>位</div>
+          <div class="row mx-auto">
+            <div class="col-md-4 mb-1 d-flex align-items-end"><h5>第</h5></div>
+            <div class="col-md-4"><div class="rate-rank"><%= index + 1 %></div></div>
+            <div class="col-md-4 mb-1 d-flex align-items-end"><h5>位</h5></div>
+          </div>
           <div class="img-fluid">
           <%= link_to restaurant_path(restaurant_data.id) do %>
             <%= attachment_image_tag restaurant_data, :image, :fill, 348, 200, format: 'jpeg', fallback: "no_image.jpg" %>
@@ -388,19 +436,19 @@
                 <%= link_to restaurant_data.user.name, user_path(restaurant_data.user) %>
               </h5>
               <div class="col d-flex align-items-end">
-                <a class="restaurant_<%= restaurant_data.id %>">
+                <p class="restaurant_<%= restaurant_data.id %>">
                   <%= render "favorites/favorite", restaurant: restaurant_data %>
-                </a>
+                </p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12 shadow-sm">
-                <h5 class="my-3"><%= restaurant_data.name %></h5>
+                <h5 class="my-3 text-center"><%= restaurant_data.name %></h5>
               </div>
             </div>
             <div class="row">
               <p class="card-text">
-                <div class="">
+                <div class="mx-auto my-3">
                   <div id="star-rate-western_food-<%= restaurant_data.id %>"></div>
                   <script>
                     $('#star-rate-western_food-<%= restaurant_data.id %>').raty({
@@ -414,8 +462,15 @@
                     });
                   </script>
                 </div>
-                <p><%= restaurant_rate %>点（ <%= Restaurant.find(restaurant_data.id).restaurant_comments.count %> 件のレビュー）</p>
+                <p class="d-flex align-items-end">
+                  <%= restaurant_rate %>点（ <%= Restaurant.find(restaurant_data.id).restaurant_comments.count %> 件のレビュー）
+                </p>
               </p>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <%= link_to "レビューを見る", restaurant_restaurant_comments_path(restaurant_data.id), class: 'btn btn-outline-secondary btn-sm btn-lg btn-block' %>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-12 border-bottom">
@@ -449,7 +504,11 @@
       <% restaurant_rate = restaurant[:average] %>
       <div class="col-md-4">
         <div class="card mb-4 shadow">
-          <div class="rate-rank">第<%= index + 1 %>位</div>
+          <div class="row mx-auto">
+            <div class="col-md-4 mb-1 d-flex align-items-end"><h5>第</h5></div>
+            <div class="col-md-4"><div class="rate-rank"><%= index + 1 %></div></div>
+            <div class="col-md-4 mb-1 d-flex align-items-end"><h5>位</h5></div>
+          </div>
           <div class="img-fluid">
           <%= link_to restaurant_path(restaurant_data.id) do %>
             <%= attachment_image_tag restaurant_data, :image, :fill, 348, 200, format: 'jpeg', fallback: "no_image.jpg" %>
@@ -464,19 +523,19 @@
                 <%= link_to restaurant_data.user.name, user_path(restaurant_data.user) %>
               </h5>
               <div class="col d-flex align-items-end">
-                <a class="restaurant_<%= restaurant_data.id %>">
+                <p class="restaurant_<%= restaurant_data.id %>">
                   <%= render "favorites/favorite", restaurant: restaurant_data %>
-                </a>
+                </p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12 shadow-sm">
-                <h5 class="my-3"><%= restaurant_data.name %></h5>
+                <h5 class="my-3 text-center"><%= restaurant_data.name %></h5>
               </div>
             </div>
             <div class="row">
               <p class="card-text">
-                <div class="">
+                <div class="mx-auto my-3">
                   <div id="star-rate-chinese-<%= restaurant_data.id %>"></div>
                   <script>
                     $('#star-rate-chinese-<%= restaurant_data.id %>').raty({
@@ -490,8 +549,15 @@
                     });
                   </script>
                 </div>
-                <p><%= restaurant_rate %>点（ <%= Restaurant.find(restaurant_data.id).restaurant_comments.count %> 件のレビュー）</p>
+                <p class="d-flex align-items-end">
+                  <%= restaurant_rate %>点（ <%= Restaurant.find(restaurant_data.id).restaurant_comments.count %> 件のレビュー）
+                </p>
               </p>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <%= link_to "レビューを見る", restaurant_restaurant_comments_path(restaurant_data.id), class: 'btn btn-outline-secondary btn-sm btn-lg btn-block' %>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-12 border-bottom">

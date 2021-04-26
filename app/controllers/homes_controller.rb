@@ -24,34 +24,7 @@ class HomesController < ApplicationController
     array = []
     restaurants.each do |restaurant|
       restaurant_comments = restaurant.restaurant_comments
-      ave = restaurant_comments.average(:rate)
-      ave = 0.0 if ave.nil?
-      average = if ave == 0.0
-        0.0
-      elsif (ave <= 0.5) || (ave < 0.8)
-        0.5
-      elsif ave < 1.3
-        1.0
-      elsif ave < 1.8
-        1.5
-      elsif ave < 2.3
-        2.0
-      elsif ave < 2.8
-        2.5
-      elsif ave < 3.3
-        3.0
-      elsif ave < 3.8
-        3.5
-      elsif ave < 4.3
-        4.0
-      elsif ave < 5.0
-        4.5
-      elsif ave == 5.0
-        5.0
-      else
-        0.0
-      end
-
+      average = (restaurant_comments.average(:rate).presence || 0).floor(1)
       # hash => {}
       hash = {restaurant: restaurant, average: average}
       # array => []
