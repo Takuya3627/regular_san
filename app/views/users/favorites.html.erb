@@ -1,0 +1,84 @@
+<div class="bg-gray m-5 px-25 w-25 text-center">
+  <h3 class="heading">いいね！した一覧</h3>
+</div>
+
+<div class="">
+  <%= paginate @restaurants %>
+</div>
+
+<div class="">
+  <div class="container">
+    <div class="row">
+      <% @restaurants.each do |restaurant| %>
+      <% restaurant_data = restaurant[:restaurant] %>
+      <% restaurant_rate = restaurant[:average] %>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow">
+          <div class="img-fluid">
+          <%= link_to restaurant_path(restaurant_data.id) do %>
+            <%= attachment_image_tag restaurant_data, :image, :fill, 348, 200, format: 'jpeg', fallback: "no_image.jpg" %>
+          <% end %>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <%= attachment_image_tag restaurant_data.user, :profile_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg" %>
+              </div>
+              <h5 class="col d-flex align-items-center">
+                <%= link_to restaurant_data.user.name, user_path(restaurant_data.user) %>
+              </h5>
+              <div class="col d-flex align-items-end">
+                <p class="restaurant_<%= restaurant_data.id %>">
+                  <%= render "favorites/favorite", restaurant: restaurant_data %>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 shadow-sm">
+                <h5 class="my-3 text-center"><%= restaurant_data.name %></h5>
+              </div>
+            </div>
+            <div class="row">
+              <p class="card-text">
+                <div class="mx-auto my-3">
+                  <div id="star-rate-<%= restaurant_data.id %>"></div>
+                  <script>
+                    $('#star-rate-<%= restaurant_data.id %>').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: '<%= restaurant_rate %>',
+                    });
+                  </script>
+                </div>
+                <p class="d-flex align-items-end">
+                  <%= restaurant_rate %>点（ <%= Restaurant.find(restaurant_data.id).restaurant_comments.count %> 件のレビュー）
+                </p>
+              </p>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <%= link_to "レビューを見る", restaurant_restaurant_comments_path(restaurant_data.id), class: 'btn btn-outline-secondary btn-sm btn-lg btn-block' %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 border-bottom">
+                <p class="mb-1 mt-2">コメント</p>
+              </div>
+              <div class="col-md-12 pt-2">
+                <%= restaurant_data.introduction %>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-center">
+            <small class="text-muted">投稿日時：<%= restaurant_data.created_at.strftime('%Y/%m/%d %H:%M') %></small>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

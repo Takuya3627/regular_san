@@ -1,5 +1,16 @@
 <div class="new-comment">
 <%= form_with model:[restaurant, restaurant_comment], remote: true do |f| %>
+
+<% if restaurant_comment.errors.any? %>
+ <div id="error_comment">
+   <ul>
+     <% restaurant_comment.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+   </ul>
+ </div>
+<% end %>
+
  <div class="" id="star">
    <%= f.label :rate,'評価 :', class:"" %>
    <%= f.hidden_field :rate, id: :review_star %>

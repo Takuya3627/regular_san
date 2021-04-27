@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :restaurant_comments, only: [:index, :create, :destroy]
   end
 
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update, :destroy] do
+    member do
+      get :favorites
+    end
+  end
 
 end

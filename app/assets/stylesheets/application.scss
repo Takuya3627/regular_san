@@ -126,6 +126,7 @@ body{
   content: '';
   border: 4px solid #000;
 }
+
 // ユーザー新規登録・ログイン画面
 .heading_new{
   position: relative;
@@ -212,15 +213,14 @@ textarea {
 
 // バリデーション　エラーメッセージ
 .notice {
-  color: white;
-  background-color: blue;
+  color: #000;
 }
-// .alert {
-//   color: white;
-//   background-color: red;
-// }
 
 // レビューランキング　文字サイズ
 .rate-rank{
   font-size: 35px;
+}
+
+#error_comment li {
+  font-size: 13px;
 }

@@ -12,6 +12,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def favorites
+    restaurants = User.find(params[:id]).favorite_restaurants
+    array = []
+    restaurants.each do |restaurant|
+      restaurant_comments = restaurant.restaurant_comments
+      average = (restaurant_comments.average(:rate).presence || 0).floor(1)
+      hash = {restaurant: restaurant, average: average}
+      array << hash
+    end
+    @restaurants = Kaminari.paginate_array(array).page(params[:page]).per(9)
+  end
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)

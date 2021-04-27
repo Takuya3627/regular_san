@@ -13,7 +13,7 @@
                 <div class="col-md-2">
                   <div class="restaurant_comments_area">
                     <% if current_user == restaurant_comment.user %>
-                      <%= link_to '削除する', restaurant_restaurant_comment_path(restaurant_comment.restaurant_id, restaurant_comment.id), method: :delete, remote: true, class: 'btn-sm btn-danger' %></td>
+                      <%= link_to '削除する', restaurant_restaurant_comment_path(restaurant_comment.restaurant_id, restaurant_comment.id), method: :delete, data: { confirm: "削除しますか？" }, remote: true, class: 'btn-sm btn-danger' %></td>
                     <% end %>
                   </div>
                 </div>
