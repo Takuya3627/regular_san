@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
+  validates :introduction, length: { maximum: 20 }
 
   has_many :restaurants, dependent: :destroy
   has_many :favorites, dependent: :destroy

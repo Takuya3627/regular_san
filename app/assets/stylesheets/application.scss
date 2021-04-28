@@ -211,3 +211,8 @@ textarea {
 .alert-alert {
   @extend .alert-danger;
 }
+
+// アカウント紹介文、文字数指定エラーメッセージ
+.user-error{
+  background-color: #FADBDA;
+}
