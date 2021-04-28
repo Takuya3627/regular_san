@@ -25,14 +25,17 @@
                   <div class="average_star text-center">
                     <div id="star-rate-<%= restaurant_comment.id %>"></div>
                     <script>
-                      $('#star-rate-<%= restaurant_comment.id %>').raty({
-                      size: 36,
-                      starOff:  '<%= asset_path('star-off.png') %>',
-                      starOn : '<%= asset_path('star-on.png') %>',
-                      starHalf: '<%= asset_path('star-half.png') %>',
-                      half: true,
-                      readOnly: true,
-                      score: <%= restaurant_comment.rate %>,
+                      $(document).on('turbolinks:load', function() {
+                        $('#star-rate-<%= restaurant_comment.id %>').html("");
+                        $('#star-rate-<%= restaurant_comment.id %>').raty({
+                        size: 36,
+                        starOff:  '<%= asset_path('star-off.png') %>',
+                        starOn : '<%= asset_path('star-on.png') %>',
+                        starHalf: '<%= asset_path('star-half.png') %>',
+                        half: true,
+                        readOnly: true,
+                        score: <%= restaurant_comment.rate %>,
+                        });
                       });
                     </script>
                   </div>
@@ -66,14 +69,17 @@
               <div class="">
                 <div id="star-rate-average"></div>
                 <script>
-                  $('#star-rate-average').raty({
-                  size: 36,
-                  starOff:  '<%= asset_path('star-off.png') %>',
-                  starOn : '<%= asset_path('star-on.png') %>',
-                  starHalf: '<%= asset_path('star-half.png') %>',
-                  half: true,
-                  readOnly: true,
-                  score: '<%= @average %>',
+                  $(document).on('turbolinks:load', function() {
+                    $('#star-rate-average').html("");
+                    $('#star-rate-average').raty({
+                    size: 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                    starHalf: '<%= asset_path('star-half.png') %>',
+                    half: true,
+                    readOnly: true,
+                    score: '<%= @average %>',
+                    });
                   });
                 </script>
               </div>

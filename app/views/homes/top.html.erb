@@ -107,14 +107,17 @@
                 <div class="mx-auto my-3">
                   <div id="star-rate-<%= restaurant_data.id %>"></div>
                   <script>
-                    $('#star-rate-<%= restaurant_data.id %>').raty({
-                    size: 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    starHalf: '<%= asset_path('star-half.png') %>',
-                    half: true,
-                    readOnly: true,
-                    score: '<%= restaurant_rate %>',
+                    $(document).on('turbolinks:load', function() {
+                      $('#star-rate-<%= restaurant_data.id %>').html("");
+                      $('#star-rate-<%= restaurant_data.id %>').raty({
+                      size: 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      readOnly: true,
+                      score: '<%= restaurant_rate %>',
+                      });
                     });
                   </script>
                 </div>
@@ -196,14 +199,17 @@
                 <div class="mx-auto my-3">
                   <div id="star-rate-izakaya-<%= restaurant_data.id %>"></div>
                   <script>
-                    $('#star-rate-izakaya-<%= restaurant_data.id %>').raty({
-                    size: 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    starHalf: '<%= asset_path('star-half.png') %>',
-                    half: true,
-                    readOnly: true,
-                    score: '<%= restaurant_rate %>',
+                    $(document).on('turbolinks:load', function() {
+                      $('#star-rate-izakaya-<%= restaurant_data.id %>').html("");
+                      $('#star-rate-izakaya-<%= restaurant_data.id %>').raty({
+                      size: 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      readOnly: true,
+                      score: '<%= restaurant_rate %>',
+                      });
                     });
                   </script>
                 </div>
@@ -283,14 +289,17 @@
                 <div class="mx-auto my-3">
                   <div id="star-rate-caffe-<%= restaurant_data.id %>"></div>
                   <script>
-                    $('#star-rate-caffe-<%= restaurant_data.id %>').raty({
-                    size: 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    starHalf: '<%= asset_path('star-half.png') %>',
-                    half: true,
-                    readOnly: true,
-                    score: '<%= restaurant_rate %>',
+                    $(document).on('turbolinks:load', function() {
+                      $('#star-rate-caffe-<%= restaurant_data.id %>').html("");
+                      $('#star-rate-caffe-<%= restaurant_data.id %>').raty({
+                      size: 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      readOnly: true,
+                      score: '<%= restaurant_rate %>',
+                      });
                     });
                   </script>
                 </div>
@@ -370,14 +379,17 @@
                 <div class="mx-auto my-3">
                   <div id="star-rate-japanese_food-<%= restaurant_data.id %>"></div>
                   <script>
-                    $('#star-rate-japanese_food-<%= restaurant_data.id %>').raty({
-                    size: 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    starHalf: '<%= asset_path('star-half.png') %>',
-                    half: true,
-                    readOnly: true,
-                    score: '<%= restaurant_rate %>',
+                    $(document).on('turbolinks:load', function() {
+                      $('#star-rate-japanese_food-<%= restaurant_data.id %>').html("");
+                      $('#star-rate-japanese_food-<%= restaurant_data.id %>').raty({
+                      size: 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      readOnly: true,
+                      score: '<%= restaurant_rate %>',
+                      });
                     });
                   </script>
                 </div>
@@ -457,14 +469,17 @@
                 <div class="mx-auto my-3">
                   <div id="star-rate-western_food-<%= restaurant_data.id %>"></div>
                   <script>
-                    $('#star-rate-western_food-<%= restaurant_data.id %>').raty({
-                    size: 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    starHalf: '<%= asset_path('star-half.png') %>',
-                    half: true,
-                    readOnly: true,
-                    score: '<%= restaurant_rate %>',
+                    $(document).on('turbolinks:load', function() {
+                      $('#star-rate-western_food-<%= restaurant_data.id %>').html("");
+                      $('#star-rate-western_food-<%= restaurant_data.id %>').raty({
+                      size: 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      readOnly: true,
+                      score: '<%= restaurant_rate %>',
+                      });
                     });
                   </script>
                 </div>
@@ -544,14 +559,17 @@
                 <div class="mx-auto my-3">
                   <div id="star-rate-chinese-<%= restaurant_data.id %>"></div>
                   <script>
-                    $('#star-rate-chinese-<%= restaurant_data.id %>').raty({
-                    size: 36,
-                    starOff:  '<%= asset_path('star-off.png') %>',
-                    starOn : '<%= asset_path('star-on.png') %>',
-                    starHalf: '<%= asset_path('star-half.png') %>',
-                    half: true,
-                    readOnly: true,
-                    score: '<%= restaurant_rate %>',
+                    $(document).on('turbolinks:load', function() {
+                      $('#star-rate-chinese-<%= restaurant_data.id %>').html("");
+                      $('#star-rate-chinese-<%= restaurant_data.id %>').raty({
+                      size: 36,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      readOnly: true,
+                      score: '<%= restaurant_rate %>',
+                      });
                     });
                   </script>
                 </div>

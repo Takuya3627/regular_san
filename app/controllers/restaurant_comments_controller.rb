@@ -13,8 +13,10 @@ class RestaurantCommentsController < ApplicationController
     @restaurant_comment = current_user.restaurant_comments.new(restaurant_comment_params)
     @restaurant_comment.restaurant_id = @restaurant.id
     @restaurant_comment.user_id = current_user.id
-    @restaurant_comment.save
-    redirect_to restaurant_restaurant_comments_path(@restaurant.id)
+    if @restaurant_comment.save
+      redirect_to restaurant_restaurant_comments_path(@restaurant.id)
+    else
+    end
   end
 
   def destroy
