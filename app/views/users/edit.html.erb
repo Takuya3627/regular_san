@@ -4,40 +4,40 @@
 
 <div class='container'>
   <%= form_with model:@user, local:true do |f| %>
-  <div class='row md-1 mb-1'>
-    <div class="col-md-2"></div>
-    <div class="col-md-2 pt-2">
-      <p>ユーザー名</p>
+    <div class='row md-1 mb-1'>
+      <div class="col-md-2"></div>
+      <div class="col-md-2 pt-2">
+        <p>ユーザー名</p>
+      </div>
+      <div class="col-md-8 mx-auto">
+        <%= f.text_field :name, autofocus: true, id:"inputName", placeholder: "ユーザー名" %>
+      </div>
     </div>
-    <div class="col-md-8 mx-auto">
-      <%= f.text_field :name, autofocus: true, id:"inputName", placeholder: "ユーザー名" %>
-    </div>
-  </div>
 
-  <div class='row md-1 mb-1'>
-    <div class="col-md-2"></div>
-    <div class="col-md-2">
-      <p>プロフィール</p>
+    <div class='row md-1 mb-1'>
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+        <p>プロフィール</p>
+      </div>
+      <div class="col-md-8 mx-auto">
+        <%= f.text_area :introduction, autofocus: true, id:"inputIntroducction", placeholder: "ここに紹介文を記述しましす。" %>
+      </div>
     </div>
-    <div class="col-md-8 mx-auto">
-      <%= f.text_area :introduction, autofocus: true, id:"inputIntroducction", placeholder: "ここに紹介文を記述しましす。" %>
-    </div>
-  </div>
 
-  <div class='row md-1 mb-1'>
-    <div class="col-md-2"></div>
-    <div class="col-md-2">
-      <p>プロフィール画像</p>
+    <div class='row md-1 mb-1'>
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+        <p>プロフィール画像</p>
+      </div>
+      <div class="col-md-8 mx-auto">
+        <%= f.attachment_field :profile_image %>
+      </div>
     </div>
-    <div class="col-md-8 mx-auto">
-      <%= f.attachment_field :profile_image %>
-    </div>
-  </div>
 
-  <div class='row md-1 mb-1'>
-    <div class="mx-auto">
-      <%= f.submit '     変更する     ', class: 'btn btn-success' %>
+    <div class='row md-1 mb-1'>
+      <div class="mx-auto">
+        <%= f.submit '     変更する     ', class: 'btn btn-success' %>
+      </div>
     </div>
-  </div>
   <% end %>
 </div>

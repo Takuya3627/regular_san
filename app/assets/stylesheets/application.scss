@@ -187,33 +187,11 @@ textarea {
   size: 50px;
 }
 
-// ユーザー新規登録時エラーメッセージ
-#error_explanation {
-  width: auto;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
-#error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 25px;
-  margin: -7px;
-  margin-bottom: 0;
-  background-color: #c00;
-  color: #fff;
-}
-#error_explanation ul li {
-  font-size: 17px;
-  list-style: square;
-}
-
 // バリデーション　エラーメッセージ
 .notice {
   color: #000;
+  background-color: #5BFF7F;
+  margin: 0px 20px 10px;
 }
 
 // レビューランキング　文字サイズ
@@ -221,6 +199,15 @@ textarea {
   font-size: 35px;
 }
 
+// コメント・レビューのエラーメッセージ
 #error_comment li {
   font-size: 13px;
+}
+
+// 「ログインしました」などのフラッシュ用スタイル
+.alert-notice {
+  @extend .alert-info;
+}
+.alert-alert {
+  @extend .alert-danger;
 }

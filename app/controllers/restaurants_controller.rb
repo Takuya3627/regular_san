@@ -40,10 +40,8 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @restaurant.user_id = current_user.id
     if @restaurant.update(restaurant_params)
-      flash.now[:notice] = "お店の内容が更新されました。"
       redirect_to restaurant_path(@restaurant)
     else
-      flash.now[:alert] = "お店の内容の変更に失敗しました。"
       render :edit
     end
   end

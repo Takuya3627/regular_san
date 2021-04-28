@@ -2,10 +2,17 @@
   <div class="bg-gray m-5 px-25 w-25 text-center">
     <h3 class="heading">新規ユーザー登録</h3>
   </div>
-  
+
+<%= render 'shared/flash_messages' %>
+
   <div class="container">
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8"><%= bootstrap_devise_error_messages! %></div>
+        <div class="col-md-2"></div>
+      </div>
+
       <div class='row md-1 mb-1'>
         <div class="col-md-1"></div>
         <div class="col-md-3 pt-2">

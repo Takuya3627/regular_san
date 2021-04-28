@@ -11,6 +11,14 @@
     </div>
   </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8"><%= render 'shared/flash_messages' %></div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
   <div class="container">
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
       <div class='row md-1 mb-1 pt-2'>
