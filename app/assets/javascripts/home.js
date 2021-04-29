@@ -1,3 +1,4 @@
+/*global $*/
 $(function() {
     var topBtn = $('#top-btn a');
     topBtn.hide();

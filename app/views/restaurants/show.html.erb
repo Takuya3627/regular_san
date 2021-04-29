@@ -129,9 +129,10 @@
             }
         </script>
 
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
-        </script>
+        <% content_for :head do %>
+          <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" data-turbolinks-track="reload">
+          </script>
+        <% end %>
 
         <!--住所名表示-->
         <div class="text-dark bg-light mb-3" style="max-width: 21rem;">
