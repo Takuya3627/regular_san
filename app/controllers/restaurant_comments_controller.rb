@@ -12,10 +12,16 @@ class RestaurantCommentsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @restaurant_comment = current_user.restaurant_comments.new(restaurant_comment_params)
     @restaurant_comment.restaurant_id = @restaurant.id
-    @restaurant_comment.user_id = current_user.id
-    if @restaurant_comment.save
-      redirect_to restaurant_restaurant_comments_path(@restaurant.id)
-    else
+    review_count = RestaurantComment.where(restaurant_id: params[:restaurant_id]).where(user_id: current_user.id).count
+    # バリデーションによるエラーがあるか判定
+    if @restaurant_comment.valid?
+      # バリデーションエラーが無い、且つレビューを一度もしたことない場合
+      if review_count < 1
+        @restaurant_comment.save
+        redirect_to restaurant_restaurant_comments_path(@restaurant.id)
+      else
+        flash[:danger] = 'レビュー・コメントの投稿は一度までです！'
+      end
     end
   end
 
