@@ -1,0 +1,25 @@
+<% if notice %>
+  <div class="container">
+    <div class="row">
+    	<div class="col flash notice text-center">
+    	  <span ="notice"><%= notice %></span>
+    	</div>
+    </div>
+	</div>
+<% elsif flash[:success] %>
+  <div class="container">
+    <div class="row">
+    	<div class="col flash success text-center">
+    	  <span ="success"><%= flash[:success] %></span>
+    	</div>
+    </div>
+	</div>
+<% elsif flash[:danger] %>
+  <div class="container">
+    <div class="row">
+    	<div class="col flash danger text-center">
+    	  <span ="danger"><%= flash[:danger] %></span>
+    	</div>
+    </div>
+	</div>
+<% end %>

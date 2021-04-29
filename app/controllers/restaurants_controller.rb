@@ -1,5 +1,16 @@
 class RestaurantsController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:show, :new, :edit]
+  before_action :correct_restaurant,only: [:edit]
+
+  # 直打ち禁止 （URL入力で他人の編集画面へ遷移させない）
+  def correct_restaurant
+        @restaurant = Restaurant.find(params[:id])
+    unless @restaurant.id == current_user.id
+      flash[:danger] = '不正アクセスが検出されました！'
+      redirect_to root_path
+    end
+  end
+
   def index
     array = []
     Restaurant.all.each do |restaurant|

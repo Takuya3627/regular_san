@@ -1,4 +1,16 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:edit]
+  before_action :correct_user,only: [:edit]
+
+  # 直打ち禁止 （URL入力で他人の編集画面へ遷移させない）
+  def correct_user
+        @user = User.find(params[:id])
+    unless @user.id == current_user.id
+      flash[:danger] = '不正アクセスが検出されました！'
+      redirect_to root_path
+    end
+  end
+
   def index
     @users = User.page(params[:page]).per(12)
   end

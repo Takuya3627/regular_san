@@ -14,12 +14,8 @@
     <div class="wrapper">
       <%= render 'layouts/header' %>
         <main>
-          <!--deivseのフラッシュメッセージを表示-->
-          <div class="container">
-            <div class="row">
-              <p class="col text-center notice"><%= notice %></p>
-            </div>
-          </div>
+          <!--フラッシュメッセージを表示-->
+          <%= render "layouts/flash" %>
         </main>
         <%= yield %>
       <footer>
