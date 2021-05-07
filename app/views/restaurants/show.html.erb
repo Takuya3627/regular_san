@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-md-7">
         <div class="card" style="width: 40rem;">
-          <%= attachment_image_tag @restaurant, :image, :fill, 600, 400, format: 'jpeg', fallback: "no_image.jpg" %>
+          <%= attachment_image_tag @restaurant, :image, :fill, 600, 400, format: 'jpeg', fallback: "no_image.jpg", class:"w-100" %>
           <div class="card-body">
             <div class="row">
               <div class="col-md-9">
@@ -68,7 +68,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-4">
-                <%= attachment_image_tag @restaurant.user, :profile_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg" %>
+                <%= attachment_image_tag @restaurant.user, :profile_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg", class:"w-100" %>
               </div>
               <div class="col-md-8">
                 <h4 class="card-title"><%= link_to @restaurant.user.name, user_path(@restaurant.user) %></h4>

@@ -16,13 +16,13 @@
         <div class="card mb-4 shadow">
           <div class="img-fluid">
           <%= link_to restaurant_path(restaurant_data.id) do %>
-            <%= attachment_image_tag restaurant_data, :image, :fill, 348, 200, format: 'jpeg', fallback: "no_image.jpg" %>
+            <%= attachment_image_tag restaurant_data, :image, :fill, 348, 200, format: 'jpeg', fallback: "no_image.jpg", class:"w-100" %>
           <% end %>
           </div>
           <div class="card-body">
             <div class="row">
               <div class="col">
-                <%= attachment_image_tag restaurant_data.user, :profile_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg" %>
+                <%= attachment_image_tag restaurant_data.user, :profile_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg", class:"w-100" %>
               </div>
               <h5 class="col d-flex align-items-center">
                 <%= link_to restaurant_data.user.name, user_path(restaurant_data.user) %>
